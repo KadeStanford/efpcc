@@ -14,7 +14,7 @@ function ContentSection({ text, imageSrc, imageAlt, reverse }) {
 
   return (
     <section className={contentClass}>
-      <div cylassName={rowClass}>
+      <div className={rowClass}>
         {reverse && (
           <div className={imageColumnClass}>
             <img
