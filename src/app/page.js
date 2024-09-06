@@ -1,10 +1,27 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import styles from "./EastFelicianaParishChamber.module.css";
 import NavigationMenu from "./NavigationMenu";
 import ContentSection from "./ContentSection";
 import Footer from "./Footer"; // Import Footer component
 
 function EastFelicianaParishChamber() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroImage = document.querySelector(`.${styles.heroImage}`);
+      if (window.scrollY > 50) {
+        // Adjust the scroll value as needed
+        heroImage.classList.add(styles.zoomed);
+      } else {
+        heroImage.classList.remove(styles.zoomed);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main className={styles.container}>
       <div className={styles.mainContent}>

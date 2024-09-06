@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./EastFelicianaParishChamber.module.css";
 
 function NavigationMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navItems = [
     "Home",
     "Page 1",
@@ -12,17 +16,29 @@ function NavigationMenu() {
     "Page 6",
   ];
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen); // Toggle between true and false
+  };
+
   return (
     <nav className={styles.navigation}>
-      {navItems.map((item, index) => (
-        <a
-          key={index}
-          href={`#${item.toLowerCase().replace(" ", "-")}`}
-          className={styles.navItem}
-        >
-          {item}
-        </a>
-      ))}
+      {/* Dropdown Button */}
+      <button className={styles.menuToggle} onClick={toggleMenu}>
+        ☰
+      </button>
+
+      {/* Navigation Items */}
+      <div className={`${styles.navItems} ${isOpen ? styles.open : ""}`}>
+        {navItems.map((item, index) => (
+          <a
+            key={index}
+            href={`#${item.toLowerCase().replace(" ", "-")}`}
+            className={styles.navItem}
+          >
+            {item}
+          </a>
+        ))}
+      </div>
     </nav>
   );
 }

@@ -1,55 +1,23 @@
 /* Importing fonts from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiko:wght@400;700&family=Inknut+Antiqua:wght@400;700&family=Varela+Round&display=swap");
 
-.container {
+/* Global Styles */
+.container,
+.mainContent {
   background-color: #fff;
   display: flex;
-  padding-top: 38px;
   flex-direction: column;
   overflow: hidden;
 }
 
+.container {
+  padding-top: 0px;
+}
+
 .mainContent {
-  background-color: #fff;
-  display: flex;
   width: 100%;
   padding-bottom: 272px;
-  flex-direction: column;
   align-items: center;
-}
-
-@media (max-width: 991px) {
-  .mainContent {
-    max-width: 100%;
-    padding-bottom: 100px;
-  }
-}
-
-.heroSection {
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  position: relative;
-  z-index: 10;
-  min-height: 286px;
-  margin-top: -38px;
-  width: 100%;
-  padding-top: 40px;
-}
-
-@media (max-width: 991px) {
-  .heroSection {
-    max-width: 100%;
-  }
-}
-
-.heroImage {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: fill;
-  object-position: center;
 }
 
 .logoContainer {
@@ -58,12 +26,7 @@
   display: flex;
   margin-left: 14px;
   gap: 9px;
-}
-
-@media (max-width: 991px) {
-  .logoContainer {
-    margin-left: 10px;
-  }
+  z-index: 20;
 }
 
 .logoWrapper {
@@ -78,8 +41,10 @@
 
 .logoImage {
   z-index: 2;
-  width: 110%;
-  height: 110%;
+  width: 140%;
+  height: 140%;
+  margin-top: 40%;
+  margin-left: 60%;
 }
 
 .logoText {
@@ -90,44 +55,94 @@
   font: 700 36px "Inknut Antiqua", -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-@media (max-width: 991px) {
-  .logoText {
-    margin-top: 40px;
-  }
-}
-
 .navigation {
   position: relative;
   background-color: #43764b;
   box-shadow: -2px 13px 19px rgba(0, 0, 0, 0.25);
-  z-index: 10;
+  z-index: 30;
   display: flex;
   width: 100%;
   align-items: flex-start;
-  gap: 40px 95px;
+  gap: 5px 5px;
   color: #fff;
   flex-wrap: wrap;
   margin: 5px 0 -9px;
   margin-top: 60px;
   padding: 6px 80px 6px 0;
-  font: 1 25px "Varela Round", -apple-system, Roboto, Helvetica, sans-serif;
+  font: 1 25px "Alfa Slab One", -apple-system, Roboto, Helvetica, sans-serif;
+  justify-content: space-around; /* Add this line */
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.menuToggle:hover {
+  color: #ffffff;
+}
+
+.navItems {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes full width */
+  justify-content: center; /* Center the items */
+  padding-bottom: 15px;
+}
+
+.navItems.open {
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes full width */
+  justify-content: center; /* Center the items */
 }
 
 .navigation a {
+  position: relative;
   color: #fff;
   text-decoration: none;
   margin-left: 40px;
+  padding: 5px 10px;
+  z-index: 1;
+  transition: color 0.3s ease;
+  gap: 10px;
 }
 
-@media (max-width: 991px) {
-  .navigation {
-    max-width: 100%;
-    padding-right: 20px;
-  }
+.navigation a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease, left 0.3s ease, right 0.3s ease;
+  z-index: -1;
 }
 
-.navItem {
-  flex-grow: 1;
+.navigation a:hover::before {
+  transform: scaleX(1);
+  left: 0;
+  right: 0;
+}
+
+.navigation a:hover {
+  color: #246a31;
+  text-decoration: underline;
 }
 
 .welcomeTitle {
@@ -139,83 +154,40 @@
     sans-serif;
 }
 
-@media (max-width: 991px) {
-  .welcomeTitle {
-    max-width: 100%;
-  }
+.contentSection,
+.secondContentSection {
+  width: 98%;
+  max-width: 1021px;
 }
 
 .contentSection {
   margin-top: -5px;
-  width: 100%;
-  max-width: 1021px;
 }
 
-@media (max-width: 991px) {
-  .contentSection {
-    max-width: 100%;
-  }
-}
-
-.contentRow {
+.contentRow,
+.secondContentRow {
   gap: 50px;
   display: flex;
 }
 
-@media (max-width: 991px) {
-  .contentRow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
-  }
-}
-
-.textColumn {
+.textColumn,
+.secondTextColumn {
   display: flex;
   flex-direction: column;
   line-height: normal;
+}
+
+.textColumn {
   width: 65%;
-  margin-left: 0px;
 }
 
-@media (max-width: 991px) {
-  .textColumn {
-    width: 100%;
-  }
-}
-
-.missionStatement {
-  border-radius: 68px;
-  background-color: #43764b;
-  box-shadow: -4px 25px 26px -11px rgba(0, 0, 0, 0.39);
-  margin-top: 36px;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-  padding: 55px 18px;
-  font: 400 24px/35px "Varela Round", -apple-system, Roboto, Helvetica,
-    sans-serif;
-}
-
-@media (max-width: 991px) {
-  .missionStatement {
-    max-width: 100%;
-    margin-top: 40px;
-  }
-}
-
-.imageColumn {
+.imageColumn,
+.secondImageColumn {
   display: flex;
   flex-direction: column;
   line-height: normal;
   width: 35%;
-  margin-left: 20px;
-}
-
-@media (max-width: 991px) {
-  .imageColumn {
-    width: 100%;
-  }
+  min-width: 400px;
 }
 
 .contentImage {
@@ -227,87 +199,28 @@
   flex-grow: 1;
 }
 
-@media (max-width: 991px) {
-  .contentImage {
-    margin-top: 39px;
-  }
-}
-
-.secondContentSection {
-  width: 100%;
-  max-width: 1021px;
-  margin: 58px 0 -54px;
-}
-
-@media (max-width: 991px) {
-  .secondContentSection {
-    max-width: 100%;
-    margin: 40px 0 10px;
-  }
-}
-
-.secondContentRow {
-  gap: 20px;
-  display: flex;
-}
-
-@media (max-width: 991px) {
-  .secondContentRow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
-  }
-}
-
-.secondImageColumn {
-  display: flex;
-  flex-direction: column;
-  line-height: normal;
-  width: 35%;
-  margin-left: 0px;
-}
-
-@media (max-width: 991px) {
-  .secondImageColumn {
-    width: 100%;
-  }
-}
-
-.secondTextColumn {
-  display: flex;
-  flex-direction: column;
-  line-height: normal;
-  width: 65%;
-  margin-left: 20px;
-}
-
-@media (max-width: 991px) {
-  .secondTextColumn {
-    width: 100%;
-  }
-}
-
+.missionStatement,
 .visionStatement {
   border-radius: 68px;
   background-color: #43764b;
   box-shadow: -4px 25px 26px -11px rgba(0, 0, 0, 0.39);
-  margin-top: 47px;
-  flex-grow: 1;
   color: #fff;
   text-align: center;
   width: 100%;
-  padding: 37px 15px;
+  padding: 55px 18px;
   font: 400 24px/35px "Varela Round", -apple-system, Roboto, Helvetica,
     sans-serif;
 }
 
-@media (max-width: 991px) {
-  .visionStatement {
-    max-width: 100%;
-    margin-top: 40px;
-  }
+.missionStatement {
+  margin-top: 36px;
 }
 
+.visionStatement {
+  margin-top: 47px;
+}
+
+/* Hidden accessibility elements */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -320,9 +233,7 @@
   border: 0;
 }
 
-/* Add these styles at the end of the file */
-/* Add these styles at the end of the file */
-
+/* Footer Styles */
 .footer {
   background-color: #43764b;
   color: #fff;
@@ -354,4 +265,174 @@
 
 .footerLink:hover {
   text-decoration: underline;
+}
+
+/* Hero Section */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: auto; /* Let the height adjust dynamically */
+  padding-top: 0; /* Remove top padding */
+  margin-top: 0; /* Remove any margin */
+  overflow: hidden;
+}
+
+.heroImage {
+  position: absolute;
+  margin-top: 0%;
+  top: 0;
+  left: -10%;
+  width: 130%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+/* Adjust width for smaller screens */
+/* Adjust width and position for smaller screens */
+@media (max-width: 1200px) {
+  .heroImage {
+    width: 180%;
+    left: -50%; /* Move to the left */
+  }
+}
+
+@media (max-width: 992px) {
+  .heroImage {
+    width: 200%;
+    left: -70%; /* Move further to the left */
+  }
+}
+
+.zoomed {
+  transform: scale(1.1);
+}
+
+/* Mobile Styles */
+@media (max-width: 800px) {
+  .mainContent {
+    max-width: 100%;
+    padding-bottom: 100px;
+  }
+
+  .logoContainer {
+    margin-left: 10px;
+  }
+
+  .logoImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: -2%;
+  }
+
+  .logoText {
+    margin-top: 40px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 0;
+    padding-bottom: 10px;
+  }
+
+  .menuToggle {
+    display: block;
+    position: static;
+    margin: 10px auto;
+    transform: none;
+  }
+
+  .navItems {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  }
+
+  .navItems.open {
+    max-height: 500px; /* Adjust this value based on the content height */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  }
+
+  .navItem {
+    width: 90%;
+    margin: 0px;
+    text-align: center;
+  }
+
+  .welcomeTitle {
+    max-width: 100%;
+  }
+
+  .contentSection,
+  .secondContentSection {
+    max-width: 90%;
+  }
+
+  .contentRow,
+  .secondContentRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .contentRow img {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .secondContentRow img {
+    display: none;
+  }
+
+  .textColumn,
+  .secondTextColumn,
+  .imageColumn,
+  .secondImageColumn {
+    width: 100%;
+  }
+
+  .contentImage {
+    margin-top: 39px;
+    border-radius: 0px;
+  }
+
+  .missionStatement,
+  .visionStatement {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .heroSection {
+    max-width: 100%;
+    height: auto; /* Dynamically adjust the height */
+    padding-top: 0; /* Ensure no top padding */
+    margin-top: 0; /* Ensure no top margin */
+  }
+
+  .heroImage {
+    position: absolute;
+    top: 0; /* Ensure image starts from the top */
+    left: 0;
+    width: 100%;
+    height: 300px; /* Adjust for mobile */
+    object-fit: cover; /* Ensure the image covers the area */
+    object-position: 70% center;
+    margin-left: 0;
+    margin-top: 0;
+  }
 }
