@@ -315,6 +315,20 @@
 
 /* Mobile Styles */
 @media (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+    gap: 10px; /* Adjust gap for column layout */
+  }
+
+  .footerLink:not(:last-child)::after {
+    content: "";
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: 10px; /* Adjust gap for column layout */
+  }
+
   .mainContent {
     max-width: 100%;
     padding-bottom: 100px;
