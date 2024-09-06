@@ -1,95 +1,51 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import React from "react";
+import styles from "./EastFelicianaParishChamber.module.css";
+import NavigationMenu from "./NavigationMenu";
+import ContentSection from "./ContentSection";
+import Footer from "./Footer"; // Import Footer component
 
-export default function Home() {
+function EastFelicianaParishChamber() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main className={styles.container}>
+      <div className={styles.mainContent}>
+        <header className={styles.heroSection}>
+          <img
+            loading="lazy"
+            src="/images/EFPCCBanner.png"
+            className={styles.heroImage}
+            alt="East Feliciana Parish landscape"
+          />
+          <div className={styles.logoContainer}>
+            <div className={styles.logoWrapper}>
+              <img
+                loading="lazy"
+                src="/images/EFPCCLogo.png"
+                className={styles.logoImage}
+                alt="East Feliciana Parish Chamber of Commerce logo"
+              />
+            </div>
+          </div>
+          <NavigationMenu />
+        </header>
+        <h2 className={styles.welcomeTitle}>
+          Welcome to the East Feliciana Parish <br></br>Chamber of Commerce
+        </h2>
+        <ContentSection
+          text="The East Feliciana Parish Chamber of Commerce is dedicated to supporting and enhancing our local community. As advocates, connectors, and problem solvers, we work to make a meaningful impact for businesses and individuals throughout the parish."
+          imageSrc="/images/Courthouse.png"
+          imageAlt="East Feliciana Parish community"
+          reverse={false}
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <ContentSection
+          text="With a focus on Leadership, Unity, Advocacy, and Innovation, we aim to meet the needs of our members while fostering the long-term success of our community. Whether you are doing business in East Feliciana Parish or engaging with the community in other ways, we are committed to helping our parish thrive."
+          imageSrc="/images/Courthouse.png"
+          imageAlt="East Feliciana Parish business district"
+          reverse={true}
+        />
+      </div>
+      <Footer /> {/* Add Footer component */}
+    </main>
   );
 }
+
+export default EastFelicianaParishChamber;
